@@ -271,10 +271,19 @@ open class FrameLayout: UIView {
 		return ((targetView?.isHidden ?? false || isHidden) && ignoreHiddenView)
 	}
 	
-	/// Returns intrinsic content size
-	open override var intrinsicContentSize: CGSize {
-		return contentSizeThatFits(size: CGSize(width: UIScreen.main.nativeBounds.width, height: .greatestFiniteMagnitude))
-	}
+    /// Returns intrinsic content size
+    open override var intrinsicContentSize: CGSize {
+        #if os(visionOS)
+        let scenes = UIApplication.shared.connectedScenes
+        let windowScene = scenes.first as? UIWindowScene
+        let window = windowScene?.windows.first
+
+        let width: CGFloat = window?.bounds.width ?? 0
+        return contentSizeThatFits(size: CGSize(width: width, height: .greatestFiniteMagnitude))
+        #else
+        return contentSizeThatFits(size: CGSize(width: UIScreen.main.nativeBounds.width, height: .greatestFiniteMagnitude))
+        #endif
+    }
 	
 	// Skeleton
 	
