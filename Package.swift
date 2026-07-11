@@ -15,7 +15,10 @@ let package = Package(
         .target(
             name: "FrameLayoutKit",
 			path: "FrameLayoutKit/Classes",
-			exclude: ["Example"])
+			exclude: ["Example"]),
+        .testTarget(
+            name: "FrameLayoutKitTests",
+            dependencies: ["FrameLayoutKit"])
     ],
 	swiftLanguageVersions: [.v5]
 )
