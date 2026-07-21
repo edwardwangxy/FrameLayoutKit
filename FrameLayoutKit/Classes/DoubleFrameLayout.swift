@@ -7,12 +7,12 @@
 
 import UIKit
 
-public enum NKLayoutAxis: Sendable {
+public enum NKLayoutAxis {
     case horizontal // left - right
     case vertical // top - bottom
 }
 
-public enum NKLayoutDistribution: Equatable, Sendable {
+public enum NKLayoutDistribution: Equatable {
 	case top
     case bottom
     case equal
@@ -135,7 +135,7 @@ open class DoubleFrameLayout: FrameLayout {
 	}
 	
 	override open var description: String {
-		return super.description
+		return "[\(super.description)]\n[frameLayout1: \(String(describing: frameLayout1))]\n-[frameLayout2: \(String(describing: frameLayout2))]"
 	}
 	
 	// Skeleton

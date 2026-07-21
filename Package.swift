@@ -1,11 +1,11 @@
-// swift-tools-version:6.0
+// swift-tools-version:5.1
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
 let package = Package(
     name: "FrameLayoutKit",
-	platforms: [.iOS(.v13), .tvOS(.v13)],
+	platforms: [.iOS(.v9), .tvOS(.v9)],
     products: [
         .library(
             name: "FrameLayoutKit",
@@ -14,10 +14,8 @@ let package = Package(
     targets: [
         .target(
             name: "FrameLayoutKit",
-			path: "FrameLayoutKit/Classes"),
-        .testTarget(
-            name: "FrameLayoutKitTests",
-            dependencies: ["FrameLayoutKit"])
+			path: "FrameLayoutKit/Classes",
+			exclude: ["Example"])
     ],
-	swiftLanguageModes: [.v6]
+	swiftLanguageVersions: [.v5]
 )
