@@ -2,7 +2,6 @@ import XCTest
 import UIKit
 @testable import FrameLayoutKit
 
-@MainActor
 final class FrameLayoutKitTests: XCTestCase {
     func testLayoutOptionsAreSendableValues() {
         func requireSendable<T: Sendable>(_ value: T) {}
@@ -10,6 +9,7 @@ final class FrameLayoutKitTests: XCTestCase {
         requireSendable(NKLayoutDistribution.split(ratio: [0.25, 0.75]))
     }
 
+    @MainActor
     func testFlowLayoutTracksAddedAndRemovedViews() {
         let layout = FlowFrameLayout()
         let first = UIView()
@@ -24,6 +24,7 @@ final class FrameLayoutKitTests: XCTestCase {
         XCTAssertTrue(layout.views.first === first)
     }
 
+    @MainActor
     func testOutOfBoundsLookupReturnsNil() {
         let layout = FlowFrameLayout()
         XCTAssertNil(layout.viewAt(row: 0, column: 0))
