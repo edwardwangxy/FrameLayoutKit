@@ -2,7 +2,14 @@ import XCTest
 import UIKit
 @testable import FrameLayoutKit
 
+@MainActor
 final class FrameLayoutKitTests: XCTestCase {
+    func testLayoutOptionsAreSendableValues() {
+        func requireSendable<T: Sendable>(_ value: T) {}
+        requireSendable(NKLayoutAxis.horizontal)
+        requireSendable(NKLayoutDistribution.split(ratio: [0.25, 0.75]))
+    }
+
     func testFlowLayoutTracksAddedAndRemovedViews() {
         let layout = FlowFrameLayout()
         let first = UIView()

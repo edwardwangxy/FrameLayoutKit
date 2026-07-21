@@ -71,8 +71,4 @@ public class FLSkeletonView: UIView {
 		gradient.frame = CGRect(x: -bounds.size.width, y: 0, width: 3 * bounds.size.width, height: bounds.size.height)
 	}
 	
-	deinit {
-		stopShimmering()
-	}
-
 }

@@ -259,7 +259,7 @@ open class FrameLayout: UIView {
 	}
 	
 	open override var description: String {
-		return "[\(super.description)]-targetView: \(String(describing: targetView))"
+		return super.description
 	}
 	
 	lazy fileprivate var sizeCacheData: [String: CGSize] = {
